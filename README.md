@@ -15,8 +15,7 @@ https://github.com/mawatari/mac-provisioning
 * FirefoxProfile
 * iTunes w/ プレイリスト
 
-##クリー
-ンインストール
+##クリーンインストール
 適宜
 ##再構築
 ###El Capitanで/usr/localが存在する場合
