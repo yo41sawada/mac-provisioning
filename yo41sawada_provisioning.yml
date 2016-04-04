@@ -1,0 +1,58 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  sudo: no
+  tasks:
+    - name: ShowPercent
+      command: defaults write com.apple.menuextra.battery ShowPercent YES
+    - name: OneClick 
+      command: defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking 1
+  roles:
+    - homebrew
+    - homebrew-cask
+  vars:
+    # Tap external Homebrew repositories.
+    #
+    # e.g.
+    # - homebrew/binary
+    homebrew_repositories:
+
+    # Managed Homebrew packages.
+    #
+    # e.g.
+    # - package_name
+    # or
+    # { name: package_name, state: package_state, install_options: [with-baz, enable-debug] }
+    #
+    # state choices: [head, latest, present, absent, linked, unlinked] (default: latest)
+    # install_options: string or sequence (default: none)
+    homebrew_packages:
+      - ansible
+      - git
+
+    # Tap external Homebrew Cask repositories.
+    homebrew_cask_repositories:
+      - caskroom/versions
+
+    # Managed Homebrew Cask packages.
+    #
+    # e.g.
+    # - package_name
+    # or
+    # { name: package_name, state: package_state }
+    #
+    # state choices: [present, absent, installed, uninstalled] (default: present)
+    homebrew_cask_packages:
+      - adobe-reader
+      - avast
+      - appcleaner
+      - caffeine
+      - clipy
+      - firefox-ja
+      - flash
+      - google-japanese-ime
+      - iterm2
+      - skype
+      - sublime-text
+      - the-unarchiver
+      - vlc
