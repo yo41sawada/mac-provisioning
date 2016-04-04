@@ -29,7 +29,7 @@ sudo chown $(whoami):admin /usr/local && sudo chown -R $(whoami):admin /usr/loca
 1. brew install python
 1. brew install homebrew/versions/ansible18
 1. brew install git
-1. mkdir ~/.provisioning && cd $_
+1. mkdir .provisioning && cd $_
 1. git clone https://github.com/yo41sawada/mac-provisioning.git .
 
 ###Ansible実行
