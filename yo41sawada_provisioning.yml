@@ -3,10 +3,33 @@
   gather_facts: no
   sudo: no
   tasks:
-    - name: ShowPercent
-      command: defaults write com.apple.menuextra.battery ShowPercent YES
     - name: OneClick 
-      command: defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking 1
+      command: defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking 1 #1本指でクリック
+    - name: FinderFullPath
+      command: defaults write com.apple.finder _FXShowPosixPathInTitle -bool true #Finderのタイトルバーにフルパスを表示
+    - name: FinderAnimation
+      command: defaults write com.apple.finder DisableAllAnimations -bool true #Finderアニメーション表示
+    - name: HiddenFiles
+      command: defaults write com.apple.finder AppleShowAllFiles -bool true #隠しファイル表示
+    - name: ShowBatteryPercent
+      command: defaults write com.apple.menuextra.battery ShowPercent YES
+    - name: DateFormatting
+      command: defaults write com.apple.menuextra.clock DateFormat -string "M\\U6708d\\U65e5(EEE)  H:mm:ss" #日付を表示
+    - name: ScreenshotLocation
+      command: defaults write com.apple.screencapture location ~/Downloads #スクリーンショットの保存先
+    - name: ScreenshotShadow
+      command: defaults write com.apple.screencapture disable-shadow -bool true #スクリーンショットの影消し
+    - name: QuickLookAnimation
+      command: defaults write -g QLPanelAnimationDuration -float 0 #QuickLookを開くアニメーションを切る
+    - name: FunctionKey
+      command: defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true #Fuキーを標準のファンクションキーとして使用
+    - name: Scrolldirection
+      command: defaults write NSGlobalDomain com.apple.swipescrolldirection 0 #スクロール方向
+    - name: FileExtension
+      command: defaults write NSGlobalDomain AppleShowAllExtensions -bool true #拡張子を常に表示
+    - name: Resize
+      command: defaults write NSGlobalDomain NSWindowResizeTime -float 0.001 #リサイズ時間短縮
+
   roles:
     - homebrew
     - homebrew-cask
